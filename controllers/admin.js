@@ -12,7 +12,7 @@ exports.user = function (req, res, next) {
 exports.tampilAddUser = function (req, res, next) {
   res.render('admin/user/add', {
     title: 'Tambah User'
-  })
+  });
 };
 
 exports.addUser = function (req, res, next) {
@@ -28,29 +28,5 @@ exports.addUser = function (req, res, next) {
     if(err) next(err);
 
     res.redirect('/user');
-  })
-};
-
-exports.penduduk = function (req, res, next) {
-  res.render('admin/penduduk', {
-    title: 'Penduduk'
-  });
-};
-
-exports.harga = function (req, res, next) {
-  res.render('admin/harga', {
-    title: 'Harga'
-  });
-};
-
-exports.indeks = function (req, res, next) {
-  res.render('admin/indeks', {
-    title: 'Indeks'
-  });
-};
-
-exports.produksi = function (req, res, next) {
-  res.render('admin/produksi', {
-    title: 'Produksi'
   });
 };

@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+  .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+    include ../includes/header
+    include ../includes/sidebar
+    
+    main.mdl-layout__content.mdl-color--grey-100.pos-center-center
+      .mdl-card.mdl-shadow--2dp
+        form(method='POST')
+          .mdl-card__supporting-text
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input.mdl-textfield__input(type='date' name='tanggal')
+              label.mdl-textfield__label Tanggal
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input.mdl-textfield__input(type='text' name='komoditas')
+              label.mdl-textfield__label Komoditas
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input.mdl-textfield__input(type='number' name='harga')
+              label.mdl-textfield__label Harga
+            input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Tambah Harga' style='width:100%')

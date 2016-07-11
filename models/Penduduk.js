@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var pendudukSchema = new mongoose.Schema({
-  tahun: Date,
-  jumlahPenduduk: Number,
+  tahun: Number,
+  penduduk: Number,
   pph: Number
 });
 

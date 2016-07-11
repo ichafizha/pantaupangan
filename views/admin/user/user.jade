@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+  .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+    include ../includes/header
+    include ../includes/sidebar
+    
+    main.mdl-layout__content.mdl-color--grey-100
+      .mdl-grid.demo-content
+        .mdl-cell--6-col.mdl-cell--3-offset.mdl-grid
+          table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp(style='width:100%;')
+            thead
+              th.mdl-data-table__cell--non-numeric No.
+              th.mdl-data-table__cell--non-numeric Nama
+              th.mdl-data-table__cell--non-numeric Email
+            each u, i in users
+              tr
+                td= i+1
+                td.mdl-data-table__cell--non-numeric= u.name
+                td.mdl-data-table__cell--non-numeric= u.email
+    a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/user/add')
+      i.material-icons add

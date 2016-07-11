@@ -4,6 +4,7 @@ var logger = require('morgan');
 var compression = require('compression');
 var methodOverride = require('method-override');
 var session = require('express-session');
+var MongoStore = require('connect-mongo/es5')(session);
 var flash = require('express-flash');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
@@ -14,16 +15,10 @@ var passport = require('passport');
 // Load environment variables from .env file
 dotenv.load();
 
-// Controllers
-var HomeController = require('./controllers/home');
-var userController = require('./controllers/user');
-var contactController = require('./controllers/contact');
-
 // Passport OAuth strategies
 require('./config/passport');
 
 var app = express();
-
 
 mongoose.connect(process.env.MONGODB);
 mongoose.connection.on('error', function() {
@@ -39,7 +34,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(methodOverride('_method'));
-app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({
+      url: process.env.MONGODB,
+      autoReconnect: true,
+    })
+}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,22 +52,7 @@ app.use(function(req, res, next) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', HomeController.index);
-app.get('/contact', contactController.contactGet);
-app.post('/contact', contactController.contactPost);
-app.get('/account', userController.ensureAuthenticated, userController.accountGet);
-app.put('/account', userController.ensureAuthenticated, userController.accountPut);
-app.delete('/account', userController.ensureAuthenticated, userController.accountDelete);
-app.get('/signup', userController.signupGet);
-app.post('/signup', userController.signupPost);
-app.get('/login', userController.loginGet);
-app.post('/login', userController.loginPost);
-app.get('/forgot', userController.forgotGet);
-app.post('/forgot', userController.forgotPost);
-app.get('/reset/:token', userController.resetGet);
-app.post('/reset/:token', userController.resetPost);
-app.get('/logout', userController.logout);
-app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+app.use('/', require('./routes/admin'));
 
 // Production error handler
 if (app.get('env') === 'production') {

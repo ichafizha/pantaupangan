@@ -2,7 +2,18 @@
  * GET /
  */
 exports.index = function(req, res) {
-  res.render('home', {
-    title: 'Home'
-  });
+  if (req.user) {
+    return res.render('admin/index', {
+      title: 'Home',
+      pageTitle: 'Pantau Pangan',
+      subTitle: 'Visualisasi Anu'
+    });
+  }else {
+
+    return res.render('client/index', {
+      title: 'Home',
+      pageTitle: 'Pantau Pangan',
+      subTitle: 'Visualisasi Anu'
+    });
+  }
 };

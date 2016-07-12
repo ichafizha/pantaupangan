@@ -13,10 +13,14 @@ block content
               th.mdl-data-table__cell--non-numeric No.
               th.mdl-data-table__cell--non-numeric Nama
               th.mdl-data-table__cell--non-numeric Email
+              th
             each u, i in users
               tr
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= u.name
                 td.mdl-data-table__cell--non-numeric= u.email
+                td
+                  a(href='/user/#{u._id}/delete') delete
+                  a(href='/user/#{u._id}/update') update
     a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/user/add')
       i.material-icons add

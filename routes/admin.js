@@ -28,14 +28,23 @@ admin.get('/logout', userController.logout);
 admin.get('/user', userController.ensureAuthenticated, adminController.user);
 admin.get('/user/add', userController.ensureAuthenticated, adminController.tampilAddUser);
 admin.post('/user/add', userController.ensureAuthenticated, adminController.addUser);
+admin.get('/user/:id/delete', userController.ensureAuthenticated, adminController.deleteUser);
+admin.get('/user/:id/update', userController.ensureAuthenticated, adminController.tampilUpdateUser);
+admin.post('/user/:id/update', userController.ensureAuthenticated, adminController.updateUser);
 
 admin.get('/harga', userController.ensureAuthenticated, hargaController.harga);
 admin.get('/harga/add', userController.ensureAuthenticated, hargaController.tampilAddHarga);
 admin.post('/harga/add', userController.ensureAuthenticated, hargaController.addHarga);
+admin.get('/harga/:id/delete', userController.ensureAuthenticated, hargaController.deleteHarga);
+admin.get('/harga/:id/update', userController.ensureAuthenticated, hargaController.tampilUpdateHarga);
+admin.post('/harga/:id/update', userController.ensureAuthenticated, hargaController.updateHarga);
 
 admin.get('/penduduk', userController.ensureAuthenticated, pendudukController.penduduk);
 admin.get('/penduduk/add', userController.ensureAuthenticated, pendudukController.tampilAddPenduduk);
 admin.post('/penduduk/add', userController.ensureAuthenticated, pendudukController.addPenduduk);
+admin.get('/penduduk/:id/delete', userController.ensureAuthenticated, pendudukController.deletePenduduk);
+admin.get('/penduduk/:id/update', userController.ensureAuthenticated, pendudukController.tampilUpdatePenduduk);
+admin.post('/penduduk/:id/update', userController.ensureAuthenticated, pendudukController.updatePenduduk);
 
 admin.get('/indeks', userController.ensureAuthenticated, indeksController.indeks);
 admin.get('/indeks/add', userController.ensureAuthenticated, indeksController.tampilAddIndeks);

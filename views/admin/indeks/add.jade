@@ -5,17 +5,22 @@ block content
     include ../includes/header
     include ../includes/sidebar
     
+    if !updates
+      - var data = {bulan: '', indeks: '', inflasi:''}
+    else
+      - var data = updates
+    
     main.mdl-layout__content.mdl-color--grey-100.pos-center-center
       .mdl-card.mdl-shadow--2dp
         form(method='POST')
           .mdl-card__supporting-text
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='month' name='bulan' value='#{updates.bulan}')
+              input.mdl-textfield__input(type='month' name='bulan' value='#{data.bulan}' placeholder="")
               label.mdl-textfield__label Bulan-Tahun
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='Number' name='indeks' value='#{updates.indeks}')
+              input.mdl-textfield__input(type='Number' name='indeks' value='#{data.indeks}')
               label.mdl-textfield__label Indeks Harga Eceran
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='number' name='inflasi' value='#{updates.inflasi}')
+              input.mdl-textfield__input(type='number' name='inflasi' value='#{data.inflasi}')
               label.mdl-textfield__label Inflasi
             input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Simpan' style='width:100%')

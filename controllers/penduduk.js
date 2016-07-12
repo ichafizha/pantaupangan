@@ -30,3 +30,48 @@ exports.addPenduduk = function(req, res, next){
     res.redirect('/penduduk');
   });
 };
+
+exports.deletePenduduk = function (req, res, next) {
+  Penduduk.findByIdAndRemove(req.params.id, function(err, data) {
+    if(err) next(err);
+
+    res.redirect('/penduduk');
+  });
+};
+
+exports.tampilUpdatePenduduk = function (req, res, next) {
+  Penduduk.findById(req.params.id, function(err, data) {
+    var updateData= {
+      tahun: data.tahun.toString(),
+      penduduk: data.penduduk.toString(),
+      pph: data.pph.toString()
+    };
+
+    console.log(updateData);
+
+    res.render('admin/penduduk/add', {
+      title: 'Edit Data Penduduk & PPH',
+      updates: updateData
+    });
+  });
+};
+
+exports.updatePenduduk = function (req, res, next) {
+  var updateData= {
+    tahun: req.body.tahun,
+    penduduk: req.body.penduduk,
+    pph: req.body.pph
+  };
+
+  Penduduk.findById(req.params.id, function (err, data) {
+    data.update({
+      tahun: updateData.tahun,
+      penduduk: updateData.penduduk,
+      pph: updateData.pph
+    }, function (err, data ) {
+      if(err) next(err);
+
+      res.redirect('/penduduk');
+    });
+  });
+};

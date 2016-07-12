@@ -30,3 +30,48 @@ exports.addUser = function (req, res, next) {
     res.redirect('/user');
   });
 };
+
+exports.deleteUser = function (req, res, next) {
+  User.findByIdAndRemove(req.params.id, function(err, data) {
+    if(err) next(err);
+
+    res.redirect('/user');
+  });
+};
+
+exports.tampilUpdateUser = function (req, res, next) {
+  User.findById(req.params.id, function(err, data) {
+    var updateData= {
+      email: data.email.toString(),
+      name: data.name.toString(),
+      password: data.password.toString()
+    };
+
+    console.log(updateData);
+
+    res.render('admin/user/add', {
+      title: 'Edit Data User',
+      updates: updateData
+    });
+  });
+};
+
+exports.updateUser = function (req, res, next) {
+  var updateData= {
+    email: req.body.email,
+    name: req.body.nama,
+    password: req.body.password
+  };
+
+  User.findById(req.params.id, function (err, data) {
+    data.update({
+      email: updateData.email,
+      name: updateData.name,
+      password: updateData.password
+    }, function (err, data ) {
+      if(err) next(err);
+
+      res.redirect('/user');
+    });
+  });
+};

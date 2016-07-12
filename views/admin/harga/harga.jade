@@ -14,11 +14,15 @@ block content
               th.mdl-data-table__cell--non-numeric Tanggal
               th.mdl-data-table__cell--non-numeric Komoditas
               th.mdl-data-table__cell--non-numeric Harga
+              th
             each c, i in comodities
               tr
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= c.tanggal
                 td.mdl-data-table__cell--non-numeric= c.komoditas
                 td= c.harga
+                td
+                  a(href='/harga/#{c._id}/delete') delete
+                  a(href='/harga/#{c._id}/update') update
     a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/harga/add')
       i.material-icons add

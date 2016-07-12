@@ -5,20 +5,25 @@ block content
     include ../includes/header
     include ../includes/sidebar
     
+    if !updates
+      - var data = {tahun: '', komoditas: '', luas: '', produksi:''}
+    else
+      - var data = updates
+    
     main.mdl-layout__content.mdl-color--grey-100.pos-center-center
       .mdl-card.mdl-shadow--2dp
         form(method='POST')
           .mdl-card__supporting-text
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='number' name='tahun' value='#{updates.tahun}')
+              input.mdl-textfield__input(type='number' name='tahun' value='#{data.tahun}')
               label.mdl-textfield__label Tahun
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' name='komoditas' value='#{updates.komoditas}')
+              input.mdl-textfield__input(type='text' name='komoditas' value='#{data.komoditas}')
               label.mdl-textfield__label Komoditas
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='number' name='luas' value='#{updates.luas}')
+              input.mdl-textfield__input(type='number' name='luas' value='#{data.luas}')
               label.mdl-textfield__label Luas Lahan Panen
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='number' name='produksi' value='#{updates.produksi}')
+              input.mdl-textfield__input(type='number' name='produksi' value='#{data.produksi}')
               label.mdl-textfield__label Produksi
             input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Simpan' style='width:100%')

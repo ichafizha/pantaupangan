@@ -5,17 +5,22 @@ block content
     include ../includes/header
     include ../includes/sidebar
     
+    if !updates
+      - var data = {name: '', email: '', luas: '', password:''}
+    else
+      - var data = updates
+    
     main.mdl-layout__content.mdl-color--grey-100.pos-center-center
       .mdl-card.mdl-shadow--2dp
         form(method='POST')
           .mdl-card__supporting-text
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' name='nama')
+              input.mdl-textfield__input(type='text' name='nama' value='#{data.name}')
               label.mdl-textfield__label Nama
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' name='email')
+              input.mdl-textfield__input(type='text' name='email' value='#{data.email}')
               label.mdl-textfield__label Email
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='password' name='password')
+              input.mdl-textfield__input(type='password' name='password' value='#{data.password}')
               label.mdl-textfield__label Password
-            input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Tambah User' style='width:100%')
+            input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Simpan' style='width:100%')

@@ -9,6 +9,7 @@ var adminController = require('../controllers/admin');
 var hargaController = require('../controllers/harga');
 var pendudukController = require('../controllers/penduduk');
 var indeksController = require('../controllers/indeks');
+var produksiController = require('../controllers/produksi');
 
 admin.get('/', HomeController.index);
 admin.put('/account', userController.ensureAuthenticated, userController.accountPut);
@@ -39,7 +40,15 @@ admin.post('/penduduk/add', userController.ensureAuthenticated, pendudukControll
 admin.get('/indeks', userController.ensureAuthenticated, indeksController.indeks);
 admin.get('/indeks/add', userController.ensureAuthenticated, indeksController.tampilAddIndeks);
 admin.post('/indeks/add', userController.ensureAuthenticated, indeksController.addIndeks);
+admin.get('/indeks/:id/delete', userController.ensureAuthenticated, indeksController.deleteIndeks);
+admin.get('/indeks/:id/update', userController.ensureAuthenticated, indeksController.tampilUpdateIndeks);
+admin.post('/indeks/:id/update', userController.ensureAuthenticated, indeksController.updateIndeks);
 
-admin.get('/produksi', userController.ensureAuthenticated, adminController.produksi);
+admin.get('/produksi', userController.ensureAuthenticated, produksiController.produksi);
+admin.get('/produksi/add', userController.ensureAuthenticated, produksiController.tampilAddProduksi);
+admin.post('/produksi/add', userController.ensureAuthenticated, produksiController.addProduksi);
+admin.get('/produksi/:id/delete', userController.ensureAuthenticated, produksiController.deleteProduksi);
+admin.get('/produksi/:id/update', userController.ensureAuthenticated, produksiController.tampilUpdateProduksi);
+admin.post('/produksi/:id/update', userController.ensureAuthenticated, produksiController.updateProduksi);
 
 module.exports = admin;

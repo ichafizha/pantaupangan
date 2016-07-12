@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
 var produksiSchema = new mongoose.Schema({
-  tahun: Date,
+  tahun: Number,
   komoditas: String,
   luas: Number,
   produksi: Number,
 });
 
-var Produksi = mongoose.model('Produksi', produksiSchema)
+var Produksi = mongoose.model('Produksi', produksiSchema);
 
 module.exports = Produksi;

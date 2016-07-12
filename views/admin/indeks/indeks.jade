@@ -14,11 +14,15 @@ block content
               th.mdl-data-table__cell--non-numeric Bulan-Tahun
               th.mdl-data-table__cell--non-numeric Indeks Harga Eceran
               th.mdl-data-table__cell--non-numeric Inflasi
+              th
             each c, i in indexes
               tr
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= c.bulan
                 td= c.indeks
                 td= c.inflasi
+                td
+                  a(href='/indeks/#{c._id}/delete') delete
+                  a(href='/indeks/#{c._id}/update') update
     a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/indeks/add')
       i.material-icons add

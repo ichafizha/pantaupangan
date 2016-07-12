@@ -10,12 +10,15 @@ block content
         form(method='POST')
           .mdl-card__supporting-text
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='month' name='bulan' value='#{updates.bulan}')
-              label.mdl-textfield__label Bulan-Tahun
+              input.mdl-textfield__input(type='number' name='tahun' value='#{updates.tahun}')
+              label.mdl-textfield__label Tahun
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='Number' name='indeks' value='#{updates.indeks}')
-              label.mdl-textfield__label Indeks Harga Eceran
+              input.mdl-textfield__input(type='text' name='komoditas' value='#{updates.komoditas}')
+              label.mdl-textfield__label Komoditas
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='number' name='inflasi' value='#{updates.inflasi}')
-              label.mdl-textfield__label Inflasi
+              input.mdl-textfield__input(type='number' name='luas' value='#{updates.luas}')
+              label.mdl-textfield__label Luas Lahan Panen
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input.mdl-textfield__input(type='number' name='produksi' value='#{updates.produksi}')
+              label.mdl-textfield__label Produksi
             input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Simpan' style='width:100%')

@@ -1,4 +1,5 @@
 var Indeks = require('../models/Indeks');
+var moment = require('moment');
 
 exports.indeks = function (req, res, next) {
   Indeks.find({}, (err, data) => {
@@ -42,10 +43,12 @@ exports.deleteIndeks = function (req, res, next) {
 exports.tampilUpdateIndeks = function (req, res, next) {
   Indeks.findById(req.params.id, function(err, data) {
     var updateData= {
-      bulan: data.bulan.toDateString(),
+      bulan: moment(data.bulan).format('YYYY-MM'),
       indeks: data.indeks.toString(),
       inflasi: data.inflasi.toString()
     };
+
+    console.log(updateData);
 
     res.render('admin/indeks/add', {
       title: 'Edit Data Indeks',

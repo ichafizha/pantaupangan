@@ -5,13 +5,14 @@ exports.user = function (req, res, next) {
     res.render('admin/user/user', {
       title: 'Manage User',
       users: data,
+      js: 'admin'
     });
   });
 };
 
 exports.tampilAddUser = function (req, res, next) {
   res.render('admin/user/add', {
-    title: 'Tambah User'
+    title: 'Tambah User',
   });
 };
 

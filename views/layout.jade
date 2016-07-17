@@ -20,6 +20,10 @@ html
 
     script(src='/js/lib/jquery.js')
     script(src='https://code.getmdl.io/1.1.3/material.min.js')
+    
+    if (js)
+      script(src='/js/app/#{js}.js')
+    
     script(src='/js/main.js')
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.

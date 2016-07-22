@@ -22,7 +22,8 @@ block content
                 td= p.penduduk
                 td= p.pph
                 td
-                  a(href='/penduduk/#{p._id}/delete') delete
-                  a(href='/penduduk/#{p._id}/update') update
+                  a(href='/penduduk/#{p._id}/delete').material-icons(role='presentation') delete
+                td
+                  a(href='/penduduk/#{p._id}/update').material-icons(role='presentation') mode_edit
     a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/penduduk/add')
       i.material-icons add

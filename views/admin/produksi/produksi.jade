@@ -12,7 +12,6 @@ block content
           table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp(style='width:100%;')
             thead
               th.mdl-data-table__cell--non-numeric No.
-              th.mdl-data-table__cell--non-numeric Id
               th.mdl-data-table__cell--non-numeric Tahun
               th.mdl-data-table__cell--non-numeric Komoditas
               th.mdl-data-table__cell--non-numeric Luas Lahan Panen
@@ -21,13 +20,13 @@ block content
             each p, i in productions
               tr
                 td= i+1
-                td= p._id
                 td= p.tahun
                 td.mdl-data-table__cell--non-numeric= p.komoditas
                 td= p.luas
                 td= p.produksi
                 td
-                  a(href='/produksi/#{p._id}/delete') delete
-                  a(href='/produksi/#{p._id}/update') update
+                  a(href='/produksi/#{p._id.}/delete').material-icons(role='presentation') delete
+                td
+                  a(href='/produksi/#{p._id}/update').material-icons(role='presentation') mode_edit
     a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/produksi/add')
       i.material-icons add

@@ -1,11 +1,23 @@
 var Harga = require('../models/Harga');
 var moment = require('moment');
 
+moment.locale('id');
+
 exports.harga = function (req, res, next) {
+  let dataHarga = [];
   Harga.find({}, (err, data) => {
+    data.map((harga, i) => {
+      dataHarga.push({
+        _id: harga._id,
+        komoditas: harga.komoditas,
+        harga: harga.harga,
+        tanggal: moment(harga.tanggal).format('dddd, DD-MMMM-YYYY')
+      })
+    })
+    // console.log(dataHarga);
     res.render('admin/harga/harga', {
       title: 'Harga',
-      comodities: data,
+      comodities: dataHarga,
     });
   });
 };
@@ -28,7 +40,7 @@ exports.addHarga = function (req, res, next) {
   newHarga.save(function (err) {
     if(err) next(err);
 
-    res.redirect('/harga');
+    return res.redirect('/harga');
   });
 };
 
@@ -36,7 +48,7 @@ exports.deleteHarga = function (req, res, next) {
   Harga.findByIdAndRemove(req.params.id, function(err, data) {
     if(err) next(err);
 
-    res.redirect('/harga');
+    return res.redirect('/harga');
   });
 };
 

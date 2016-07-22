@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var hargaSchema = new mongoose.Schema({
-  tanggal: Date,
+  tanggal: {type: Date, unique: true},
   komoditas: String,
   harga: Number
 });

@@ -1,11 +1,23 @@
 var Indeks = require('../models/Indeks');
 var moment = require('moment');
 
+moment.locale('id');
+
 exports.indeks = function (req, res, next) {
+  let dataIndeks =[];
   Indeks.find({}, (err, data) => {
+    data.map((indeks, i) => {
+      dataIndeks.push({
+        _id: indeks._id,
+        bulan: moment(indeks.bulan).format('MMMM YYYY'),
+        indeks: indeks.indeks,
+        inflasi: indeks.inflasi
+      });
+    });
+    console.log(dataIndeks);
     res.render('admin/indeks/indeks', {
       title: 'Indeks dan Inflasi',
-      indexes: data,
+      indexes: dataIndeks,
     });
   });
 };
@@ -47,8 +59,6 @@ exports.tampilUpdateIndeks = function (req, res, next) {
       indeks: data.indeks.toString(),
       inflasi: data.inflasi.toString()
     };
-
-    console.log(updateData);
 
     res.render('admin/indeks/add', {
       title: 'Edit Data Indeks',

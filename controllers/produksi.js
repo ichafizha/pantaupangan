@@ -1,4 +1,5 @@
 var Produksi = require('../models/Produksi');
+const kmeans = require('node-kmeans');
 
 exports.produksi = function (req, res, next) {
   Produksi.find({}, (err, data) => {
@@ -77,3 +78,25 @@ exports.updateProduksi = function (req, res, next) {
     });
   });
 };
+
+exports.clusterKomoditas = function(req, res, next) {
+  Produksi.find({}, (err, data) => {
+    data:data;
+
+    let vectors = new Array();
+    for (let i = 0 ; i < data.length ; i++) {
+      vectors[i] = [ data[i]['luas'] , data[i]['produksi']];
+    };
+
+    kmeans.clusterize(vectors, {k: 3}, (err,res) => {
+      if (err) console.error(err);
+      else console.log('%o',res);
+    });
+
+    res.map(klaster, i) => {
+      klaster.map()
+    }
+  });
+
+
+  };

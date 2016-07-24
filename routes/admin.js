@@ -32,6 +32,13 @@ admin.get('/user/:id/delete', UserController.ensureAuthenticated, AdminControlle
 admin.get('/user/:id/update', UserController.ensureAuthenticated, AdminController.tampilUpdateUser);
 admin.post('/user/:id/update', UserController.ensureAuthenticated, AdminController.updateUser);
 
+// admin.get('/user', UserController.ensureAuthenticated, AdminController.user);
+// admin.get('/user/add', UserController.ensureAuthenticated, AdminController.tampilAddUser);
+// admin.post('/user/add', UserController.ensureAuthenticated, AdminController.addUser);
+// admin.get('/user/:id/delete', UserController.ensureAuthenticated, AdminController.deleteUser);
+// admin.get('/user/:id/update', UserController.ensureAuthenticated, AdminController.tampilUpdateUser);
+// admin.post('/user/:id/update', UserController.ensureAuthenticated, AdminController.updateUser);
+
 admin.get('/harga', UserController.ensureAuthenticated, HargaController.harga);
 admin.get('/harga/add', UserController.ensureAuthenticated, HargaController.tampilAddHarga);
 admin.post('/harga/add', UserController.ensureAuthenticated, HargaController.addHarga);
@@ -59,5 +66,6 @@ admin.post('/produksi/add', UserController.ensureAuthenticated, ProduksiControll
 admin.get('/produksi/:id/delete', UserController.ensureAuthenticated, ProduksiController.deleteProduksi);
 admin.get('/produksi/:id/update', UserController.ensureAuthenticated, ProduksiController.tampilUpdateProduksi);
 admin.post('/produksi/:id/update', UserController.ensureAuthenticated, ProduksiController.updateProduksi);
+admin.get('/produksi/cluster', UserController.ensureAuthenticated, ProduksiController.clusterKomoditas);
 
 module.exports = admin;

@@ -40,13 +40,13 @@ exports.loginPost = function(req, res, next) {
 
   if (errors) {
     req.flash('error', errors);
-    return res.redirect('/login');
+    return res.redirect('/admin');
   }
 
   passport.authenticate('local', function(err, user, info) {
     if (!user) {
       req.flash('error', info);
-      return res.redirect('/login')
+      return res.redirect('/admin')
     }
     req.logIn(user, function(err) {
       res.redirect('/');

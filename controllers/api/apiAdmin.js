@@ -24,4 +24,4 @@ exports.getUser = (req, res, next) => {
       data: user,
     });
   });
-};
+}; 

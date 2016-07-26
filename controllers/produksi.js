@@ -93,9 +93,9 @@ exports.clusterKomoditas = function(req, res, next) {
       else console.log('%o',res);
     });
 
-    res.map(klaster, i) => {
-      klaster.map()
-    }
+    // res.map(klaster, i) => {
+    //   klaster.map()
+    // }
   });
 
 

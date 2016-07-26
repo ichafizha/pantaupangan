@@ -29,6 +29,20 @@ exports.getSelectedHarga = (req, res, next) => {
   });
 };
 
+exports.getHargaByKomoditas = (req, res, next) => {
+  let komo= req.params.komoditas;
+
+  Harga.find({"komoditas":{$komo}}, (err, harga) => {
+    if(err) next(err);
+
+    res.json({
+      statusCode: 200,
+      message: 'success get by komo',
+      data: harga,
+    });
+  });
+};
+
 exports.getAllIndeks = (req, res, next) => {
   Indeks.find({}, (err, indeks) => {
     if(err) next(err);

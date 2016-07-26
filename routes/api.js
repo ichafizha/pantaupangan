@@ -8,19 +8,18 @@ var HargaController = require('../controllers/harga');
 var PendudukController = require('../controllers/penduduk');
 var IndeksController = require('../controllers/indeks');
 var ProduksiController = require('../controllers/produksi');
-var ClientController = require('../controllers/api/apiClient');
+var ApiClientController = require('../controllers/api/apiClient');
 
-// API admin
-api.get('/admin', UserController.ensureAuthenticated, AdminController.getAllUser);
-
-api.get('/', ClientController.getAllHarga);
-api.get('/harga/:id', ClientController.getSelectedHarga);
-api.get('/indeks', ClientController.getAllIndeks);
-api.get('/indeks/:id', ClientController.getSelectedIndeks);
-api.get('/penduduk', ClientController.getAllPenduduk);
-api.get('/penduduk/:id', ClientController.getSelectedPenduduk);
-api.get('/produksi', ClientController.getAllProduksi);
-api.get('/produksi/:id', ClientController.getSelectedProduksi);
+//API client
+api.get('/', ApiClientController.getAllHarga);
+api.get('/harga/:id', ApiClientController.getSelectedHarga);
+api.get('/harga/komo/:komoditas', ApiClientController.getHargaByKomoditas);
+api.get('/indeks', ApiClientController.getAllIndeks);
+api.get('/indeks/:id', ApiClientController.getSelectedIndeks);
+api.get('/penduduk', ApiClientController.getAllPenduduk);
+api.get('/penduduk/:id', ApiClientController.getSelectedPenduduk);
+api.get('/produksi', ApiClientController.getAllProduksi);
+api.get('/produksi/:id', ApiClientController.getSelectedProduksi);
 
 
 module.exports = api;

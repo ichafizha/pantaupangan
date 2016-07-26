@@ -6,14 +6,15 @@ exports.index = function(req, res) {
     return res.render('admin/index', {
       title: 'Home',
       pageTitle: 'Pantau Pangan',
-      subTitle: 'Visualisasi Anu'
+      subTitle: 'Visualisasi Open Data Pangan Jawa Barat'
     });
   }else {
 
     return res.render('client/index', {
       title: 'Home',
       pageTitle: 'Pantau Pangan',
-      subTitle: 'Visualisasi Anu'
+      subTitle: 'Visualisasi Open Data Pangan Jawa Barat',
+      moment: require('moment'),
     });
   }
 };

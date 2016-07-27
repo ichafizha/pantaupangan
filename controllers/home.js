@@ -2,6 +2,7 @@ const Harga = require('../models/Harga');
 const _ = require('lodash');
 const moment = require('moment');
 const async = require('async');
+const numeral = require('numeral');
 /**
  * GET /
  */
@@ -49,6 +50,9 @@ function getAllHarga(length, callback) {
 
 function limitDataHarga(length, sortedDataHarga, callback) {
   let uniq = _.uniqBy(sortedDataHarga, 'komoditas');
+  uniq.map((data, i) => {
+    uniq[i].hargaString = numeral(uniq[i].harga).format('0,0').replace(',', '.');
+  })
   let getHarga = _.take(uniq, length);
   callback(null, getHarga);
 }

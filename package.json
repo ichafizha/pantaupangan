@@ -29,6 +29,7 @@
     "moment": "^2.14.1",
     "mongoose": "^4.4.8",
     "morgan": "^1.7.0",
+    "node-kmeans": "^1.1.0",
     "node-sass": "^3.6.0",
     "nodemailer": "^2.3.0",
     "nodemon": "^1.9.1",

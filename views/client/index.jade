@@ -7,16 +7,16 @@ block content-client
 		main.mdl-layout__content.mdl-layout__content--margin.margin-new
 			#overview.mdl-layout__tab-panel.is-active
 				section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp
-					h4 #{moment(Date.now()).format('dddd, DD-MMMM-YYYY')}
+					h4= today
 					.mdl-card.mdl-card--custom.mdl-cell.mdl-cell--12-col
 						ul.mdl-list
 							each k in komoditas
 								li.mdl-list__item.mdl-list__item--custom
 									span gambar beras
-									span= k
-									span Rp. harga / kg
+									span= k.komoditas
+									span Rp. #{k.harga}/kg
 									span
-										a.mdl-button.mdl-js-button.mdl-button--primary(href='/komoditas/#{k}')
+										a.mdl-button.mdl-js-button.mdl-button--primary(href='/komoditas/#{k.komoditas}')
 											| Lihat Fluktuasi
 
 

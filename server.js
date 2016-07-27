@@ -31,17 +31,19 @@ app.set('port', process.env.PORT || 3000);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(expressValidator());
 app.use(methodOverride('_method'));
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({
-      url: process.env.MONGODB,
-      autoReconnect: true,
-    })
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({
+    url: process.env.MONGODB,
+    autoReconnect: true,
+  })
 }));
 app.use(flash());
 app.use(passport.initialize());

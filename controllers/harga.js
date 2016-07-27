@@ -3,7 +3,7 @@ var moment = require('moment');
 
 moment.locale('id');
 
-exports.harga = function (req, res, next) {
+exports.harga = function(req, res, next) {
   let dataHarga = [];
   Harga.find({}, (err, data) => {
     data.map((harga, i) => {
@@ -13,8 +13,8 @@ exports.harga = function (req, res, next) {
         harga: harga.harga,
         tanggal: moment(harga.tanggal).format('dddd, DD-MMMM-YYYY')
       })
-    })
-    // console.log(dataHarga);
+    });
+    
     res.render('admin/harga/harga', {
       title: 'Harga',
       comodities: dataHarga,
@@ -22,39 +22,39 @@ exports.harga = function (req, res, next) {
   });
 };
 
-exports.tampilAddHarga = function (req, res, next) {
+exports.tampilAddHarga = function(req, res, next) {
   res.render('admin/harga/add', {
     title: 'Tambah Harga Komoditas',
   });
 };
 
-exports.addHarga = function (req, res, next) {
-  var data ={
-    tanggal : req.body.tanggal,
-    komoditas : req.body.komoditas,
-    harga : req.body.harga
+exports.addHarga = function(req, res, next) {
+  var data = {
+    tanggal: req.body.tanggal,
+    komoditas: req.body.komoditas,
+    harga: req.body.harga
   };
 
   var newHarga = new Harga(data);
 
-  newHarga.save(function (err) {
-    if(err) next(err);
+  newHarga.save(function(err) {
+    if (err) next(err);
 
     return res.redirect('/harga');
   });
 };
 
-exports.deleteHarga = function (req, res, next) {
+exports.deleteHarga = function(req, res, next) {
   Harga.findByIdAndRemove(req.params.id, function(err, data) {
-    if(err) next(err);
+    if (err) next(err);
 
     return res.redirect('/harga');
   });
 };
 
-exports.tampilUpdateHarga = function (req, res, next) {
+exports.tampilUpdateHarga = function(req, res, next) {
   Harga.findById(req.params.id, function(err, data) {
-    var updateData= {
+    var updateData = {
       tanggal: moment(data.tanggal).format('YYYY-MM-DD'),
       komoditas: data.komoditas.toString(),
       harga: data.harga.toString()
@@ -69,20 +69,20 @@ exports.tampilUpdateHarga = function (req, res, next) {
   });
 };
 
-exports.updateHarga = function (req, res, next) {
-  var updateData= {
+exports.updateHarga = function(req, res, next) {
+  var updateData = {
     tanggal: req.body.tanggal,
     komoditas: req.body.komoditas,
     harga: req.body.harga
   };
 
-  Harga.findById(req.params.id, function (err, data) {
+  Harga.findById(req.params.id, function(err, data) {
     data.update({
       tanggal: updateData.tanggal,
       komoditas: updateData.komoditas,
       harga: updateData.harga
-    }, function (err, data ) {
-      if(err) next(err);
+    }, function(err, data) {
+      if (err) next(err);
 
       res.redirect('/harga');
     });

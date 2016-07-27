@@ -22,7 +22,9 @@
     "express-flash": "0.0.2",
     "express-session": "^1.2.1",
     "express-validator": "^2.20.4",
+    "forever": "^0.15.2",
     "jade": "^1.11.0",
+    "lodash": "^4.14.0",
     "method-override": "^2.3.5",
     "moment": "^2.14.1",
     "mongoose": "^4.4.8",
@@ -31,6 +33,7 @@
     "nodemailer": "^2.3.0",
     "nodemon": "^1.9.1",
     "npm-run-all": "^1.8.0",
+    "numeral": "^1.5.3",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "shaman": "^0.3.2"

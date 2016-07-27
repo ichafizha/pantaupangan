@@ -3,17 +3,33 @@ const Indeks = require('../../models/Indeks');
 const Penduduk = require('../../models/Penduduk');
 const Produksi = require('../../models/Produksi');
 
+
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 exports.getAllHarga = (req, res, next) => {
-  Harga.find({}, (err, harga) => {
+  let query = {
+    komoditas: toTitleCase(req.query.komoditas)
+  };
+
+  Harga.find(query, (err, harga) => {
     if(err) next(err);
 
     res.json({
       statusCode: 200,
-      message: 'success get all data harga',
+      message: `success get all data ${query.komoditas}`,
       data: harga,
     });
   });
 };
+
+exports.distinctKomoditas = (req, res, next) => {
+  Harga.distinct('komoditas', (err, data) => {
+    console.log(data)
+  })  
+}
 
 exports.getSelectedHarga = (req, res, next) => {
   let id= req.params.id;

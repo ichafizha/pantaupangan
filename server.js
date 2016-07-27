@@ -53,7 +53,8 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/admin'));
-app.use('/api', require('./routes/api'));
+app.use('/', require('./routes/user'));
+app.use('/api/v1', require('./routes/api'));
 
 // Production error handler
 if (app.get('env') === 'production') {

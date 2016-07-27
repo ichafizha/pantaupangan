@@ -1,0 +1,21 @@
+{
+  "name": "pantaupangan",
+  "description": "My app description",
+  "main": "",
+  "authors": [
+    "Muhammad Rivki <Muhammad.Rivki@outlook.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ichafizha/pantaupangan",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "npm:chart.js#^2.1.6",
+    "lodash": "^4.14.0"
+  }
+}

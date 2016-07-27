@@ -1,3 +1,5 @@
+const Harga = require('../models/Harga');
+
 /**
  * GET /
  */
@@ -9,12 +11,16 @@ exports.index = function(req, res) {
       subTitle: 'Visualisasi Open Data Pangan Jawa Barat'
     });
   }else {
-
-    return res.render('client/index', {
-      title: 'Home',
-      pageTitle: 'Pantau Pangan',
-      subTitle: 'Visualisasi Open Data Pangan Jawa Barat',
-      moment: require('moment'),
-    });
+    let komoditas;
+    Harga.distinct('komoditas', (err, data) => {
+      komoditas = data;
+      return res.render('client/index', {
+        title: 'Home',
+        pageTitle: 'Pantau Pangan',
+        subTitle: 'Visualisasi Open Data Pangan Jawa Barat',
+        moment: require('moment'),
+        komoditas: komoditas
+      });
+    })    
   }
 };

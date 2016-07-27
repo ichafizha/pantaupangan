@@ -4,11 +4,11 @@ const client = express.Router();
 const HomeController = require('../controllers/home');
 const ClientController = require('../controllers/client');
 
-client.get('/', HomeController.index);
+// client.get('/', HomeController.index);
 client.get('/fluktuasiharga', ClientController.tampilDataFluktuasiHarga); //tampil fluktuasi harga
-client.get('/penduduk', ClientController.penduduk); //tampil prediksi pph menurut penduduk
-client.get('/indeks', ClientController.indeks); //tampil prediksi indeks harga menurut inflasi
-client.get('/produksi', ClientController.produksi); //tampil hasil pengelompokkan komoditas berdasarkan luas dan produksi
+client.get('/komoditas/:namaKomoditas', ClientController.tampilDataKomoditas);
+// client.get('/penduduk', ClientController.penduduk); //tampil prediksi pph menurut penduduk
+// client.get('/indeks', ClientController.indeks); //tampil prediksi indeks harga menurut inflasi
+// client.get('/produksi', ClientController.produksi); //tampil hasil pengelompokkan komoditas berdasarkan luas dan produksi
 
-
-module.exports = user;
+module.exports = client;

@@ -14,7 +14,7 @@ exports.tampilDataKomoditas = function(req, res, next) {
     console.log(namaKomoditas);
 
     res.render('client/komoditas', {
-        title: 'Fluktuasi Harga',
+        title:  namaKomoditas + ' Visualisasi ',
         js: 'komoditas',
         namaKomoditas: namaKomoditas,
     });

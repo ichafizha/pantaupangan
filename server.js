@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var compression = require('compression');
-var methodOverride = require('method-override');
-var session = require('express-session');
-var MongoStore = require('connect-mongo/es5')(session);
-var flash = require('express-flash');
-var bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
-var dotenv = require('dotenv');
-var mongoose = require('mongoose');
-var passport = require('passport');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const compression = require('compression');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo/es5')(session);
+const flash = require('express-flash');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const passport = require('passport');
 
 // Load environment variables from .env file
 dotenv.load();
@@ -18,7 +18,7 @@ dotenv.load();
 // Passport OAuth strategies
 require('./config/passport');
 
-var app = express();
+const app = express();
 
 mongoose.connect(process.env.MONGODB);
 mongoose.connection.on('error', function() {

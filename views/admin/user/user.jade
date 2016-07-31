@@ -20,7 +20,7 @@ block content
                 td.mdl-data-table__cell--non-numeric= u.name
                 td.mdl-data-table__cell--non-numeric= u.email
                 td
-                  a(href='/user/#{u._id}/delete').material-icons(role='presentation') delete
+                  a(href='/user/#{u._id}/delete' onclick='getConfirmation()').material-icons(role='presentation') delete
                 td
                   a(href='/user/#{u._id}/update').material-icons(role='presentation') mode_edit
     a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/user/add')

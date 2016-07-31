@@ -7,156 +7,17 @@ block content-client
 		main.mdl-layout__content.mdl-layout__content--margin.margin-new
 			#overview.mdl-layout__tab-panel.is-active
 				section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp
-					h4 #{moment(Date.now()).format('dddd, DD-MMMM-YYYY')}
+					h4.card-header= today
 					.mdl-card.mdl-card--custom.mdl-cell.mdl-cell--12-col
 						ul.mdl-list
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
-							li.mdl-list__item.mdl-list__item--custom
-								span gambar beras
-								span Beras Medium
-								span Rp. harga / kg
-								span
-									button.mdl-button.mdl-js-button.mdl-button--primary
-										| Lihat Fluktuasi
+							each k in komoditas
+								li.mdl-list__item.mdl-list__item--custom
+									span gambar beras
+									span= k.komoditas
+									span Rp. #{k.hargaString}/kg
+									span
+										a.mdl-button.mdl-js-button.mdl-button--primary(href='/komoditas/#{k.komoditas}')
+											| Lihat Fluktuasi
 
 
 			//- section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp

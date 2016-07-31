@@ -3,23 +3,40 @@ const Indeks = require('../../models/Indeks');
 const Penduduk = require('../../models/Penduduk');
 const Produksi = require('../../models/Produksi');
 
+
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+
 exports.getAllHarga = (req, res, next) => {
-  Harga.find({}, (err, harga) => {
-    if(err) next(err);
+  let query = {
+    komoditas: toTitleCase(req.query.komoditas)
+  };
+
+  Harga.find(query, (err, harga) => {
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
-      message: 'success get all data harga',
+      message: `success get all data ${query.komoditas}`,
       data: harga,
     });
   });
 };
 
+exports.distinctKomoditas = (req, res, next) => {
+  Harga.distinct('komoditas', (err, data) => {
+    console.log(data)
+  })
+}
+
 exports.getSelectedHarga = (req, res, next) => {
-  let id= req.params.id;
+  let id = req.params.id;
 
   Harga.findById(id, (err, harga) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -30,10 +47,14 @@ exports.getSelectedHarga = (req, res, next) => {
 };
 
 exports.getHargaByKomoditas = (req, res, next) => {
-  let komo= req.params.komoditas;
+  let komo = req.params.komoditas;
 
-  Harga.find({"komoditas":{$komo}}, (err, harga) => {
-    if(err) next(err);
+  Harga.find({
+    "komoditas": {
+      $komo
+    }
+  }, (err, harga) => {
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -45,7 +66,7 @@ exports.getHargaByKomoditas = (req, res, next) => {
 
 exports.getAllIndeks = (req, res, next) => {
   Indeks.find({}, (err, indeks) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -56,10 +77,10 @@ exports.getAllIndeks = (req, res, next) => {
 };
 
 exports.getSelectedIndeks = (req, res, next) => {
-  let id= req.params.id;
+  let id = req.params.id;
 
   Indeks.findById(id, (err, indeks) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -71,7 +92,7 @@ exports.getSelectedIndeks = (req, res, next) => {
 
 exports.getAllPenduduk = (req, res, next) => {
   Penduduk.find({}, (err, penduduk) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -82,10 +103,10 @@ exports.getAllPenduduk = (req, res, next) => {
 };
 
 exports.getSelectedPenduduk = (req, res, next) => {
-  let id= req.params.id;
+  let id = req.params.id;
 
   Penduduk.findById(id, (err, penduduk) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -97,7 +118,7 @@ exports.getSelectedPenduduk = (req, res, next) => {
 
 exports.getAllProduksi = (req, res, next) => {
   Produksi.find({}, (err, harga) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,
@@ -108,10 +129,10 @@ exports.getAllProduksi = (req, res, next) => {
 };
 
 exports.getSelectedProduksi = (req, res, next) => {
-  let id= req.params.id;
+  let id = req.params.id;
 
   Produksi.findById(id, (err, produksi) => {
-    if(err) next(err);
+    if (err) next(err);
 
     res.json({
       statusCode: 200,

@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var compression = require('compression');
-var methodOverride = require('method-override');
-var session = require('express-session');
-var MongoStore = require('connect-mongo/es5')(session);
-var flash = require('express-flash');
-var bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
-var dotenv = require('dotenv');
-var mongoose = require('mongoose');
-var passport = require('passport');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const compression = require('compression');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo/es5')(session);
+const flash = require('express-flash');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const passport = require('passport');
 
 // Load environment variables from .env file
 dotenv.load();
@@ -18,7 +18,7 @@ dotenv.load();
 // Passport OAuth strategies
 require('./config/passport');
 
-var app = express();
+const app = express();
 
 mongoose.connect(process.env.MONGODB);
 mongoose.connection.on('error', function() {
@@ -31,17 +31,19 @@ app.set('port', process.env.PORT || 3000);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(expressValidator());
 app.use(methodOverride('_method'));
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({
-      url: process.env.MONGODB,
-      autoReconnect: true,
-    })
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({
+    url: process.env.MONGODB,
+    autoReconnect: true,
+  })
 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -53,7 +55,8 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/admin'));
-app.use('/api', require('./routes/api'));
+app.use('/', require('./routes/user'));
+app.use('/api/v1', require('./routes/api'));
 
 // Production error handler
 if (app.get('env') === 'production') {

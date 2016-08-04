@@ -117,7 +117,7 @@ exports.getSelectedPenduduk = (req, res, next) => {
 };
 
 exports.getAllProduksi = (req, res, next) => {
-  Produksi.find({}, (err, harga) => {
+  Produksi.find({}, (err, produksi) => {
     if (err) next(err);
 
     res.json({

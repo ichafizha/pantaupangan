@@ -66,6 +66,6 @@ admin.post('/produksi/add', UserController.ensureAuthenticated, ProduksiControll
 admin.get('/produksi/:id/delete', UserController.ensureAuthenticated, ProduksiController.deleteProduksi);
 admin.get('/produksi/:id/update', UserController.ensureAuthenticated, ProduksiController.tampilUpdateProduksi);
 admin.post('/produksi/:id/update', UserController.ensureAuthenticated, ProduksiController.updateProduksi);
-admin.get('/produksi/cluster', UserController.ensureAuthenticated, ProduksiController.clusterKomoditas);
+//admin.get('/produksi/cluster', UserController.ensureAuthenticated, ProduksiController.clusterKomoditas);
 
 module.exports = admin;

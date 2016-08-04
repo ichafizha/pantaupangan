@@ -33,12 +33,12 @@ exports.addUser = function(req, res, next) {
 };
 
 exports.deleteUser = function(req, res, next) {
-  User.findByIdAndRemove(req.params.id, function(err, data) {
-    if (err) next(err);
+  User.findByIdAndRemove(req.params.id, function (err, data) {
+      if (err) throw (err)
 
-    res.redirect('/user');
-  });
-};
+      res.redirect('/user');
+  })
+}
 
 exports.tampilUpdateUser = function(req, res, next) {
   User.findById(req.params.id, function(err, data) {

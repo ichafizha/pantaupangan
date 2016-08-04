@@ -9,6 +9,7 @@ var PendudukController = require('../controllers/penduduk');
 var IndeksController = require('../controllers/indeks');
 var ProduksiController = require('../controllers/produksi');
 var ApiClientController = require('../controllers/api/apiClient');
+var ClientController = require('../controllers/client');
 
 //API client
 api.get('/harga', ApiClientController.getAllHarga);
@@ -20,5 +21,6 @@ api.get('/penduduk', ApiClientController.getAllPenduduk);
 api.get('/penduduk/:id', ApiClientController.getSelectedPenduduk);
 api.get('/produksi', ApiClientController.getAllProduksi);
 api.get('/produksi/:id', ApiClientController.getSelectedProduksi);
+api.get('/komoditas/cluster', ClientController.clusterKomoditasAPI)
 
 module.exports = api;

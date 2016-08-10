@@ -15,7 +15,7 @@
         harga[i].rTanggal = moment(new Date(data.tanggal)).format('DD/MM/YY')
       })
 
-      var sortedHarga = _.orderBy(harga, ['rTanggal', 'asc']);
+      var sortedHarga = _.orderBy(harga, ['tanggal', 'asc']);
       var labelHarga = [];
       var labelTanggal = [];
 

@@ -15,12 +15,12 @@ block content
               th.mdl-data-table__cell--non-numeric Email
               th
             each u, i in users
-              tr
+              tr.row-user(class='id-#{u._id}')
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= u.name
                 td.mdl-data-table__cell--non-numeric= u.email
                 td
-                  a(href='/user/#{u._id}/delete').material-icons(role='presentation') delete
+                  a(href='javasript:;' onClick='deleteUser("#{u._id}", "#{u.name}")').material-icons(role='presentation') delete
                 td
                   a(href='/user/#{u._id}/update').material-icons(role='presentation') mode_edit
     a#addUser.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/user/add')

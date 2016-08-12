@@ -28,7 +28,7 @@ admin.get('/logout', UserController.logout);
 admin.get('/user', UserController.ensureAuthenticated, AdminController.user);
 admin.get('/user/add', UserController.ensureAuthenticated, AdminController.tampilAddUser);
 admin.post('/user/add', UserController.ensureAuthenticated, AdminController.addUser);
-admin.get('/user/:id/delete', UserController.ensureAuthenticated, AdminController.deleteUser);
+admin.delete('/user/:id', UserController.ensureAuthenticated, AdminController.deleteUser);
 admin.get('/user/:id/update', UserController.ensureAuthenticated, AdminController.tampilUpdateUser);
 admin.post('/user/:id/update', UserController.ensureAuthenticated, AdminController.updateUser);
 

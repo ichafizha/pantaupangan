@@ -34,9 +34,12 @@ exports.addUser = function(req, res, next) {
 
 exports.deleteUser = function(req, res, next) {
   User.findByIdAndRemove(req.params.id, function (err, data) {
-      if (err) throw (err)
+      if (err) next(err);
 
-      res.redirect('/user');
+      res.json({
+        statusCode: 204,
+        message: `${data.name} has been succesful delete`,
+      })
   })
 }
 

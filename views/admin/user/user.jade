@@ -15,7 +15,7 @@ block content
               th.mdl-data-table__cell--non-numeric Email
               th
             each u, i in users
-              tr.row-user(class='id-#{u._id}')
+              tr(class='id-#{u._id}')
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= u.name
                 td.mdl-data-table__cell--non-numeric= u.email

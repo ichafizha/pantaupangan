@@ -1,9 +1,9 @@
 'use strict';
 
-function deleteUser(id, name) {
+function deleteHarga(id, komoditas, tanggal) {
   console.log(id);
   swal({
-    title: 'Are you sure wanna delete user name ' + name + '?',
+    title: 'Are you sure wanna delete user komoditas ' + komoditas + ' with date '+ tanggal +' ?',
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#DD6B55',
@@ -12,7 +12,7 @@ function deleteUser(id, name) {
     showLoaderOnConfirm: true,
   }, function () {
     $.ajax({
-      url: location.origin + '/user/' + id,
+      url: location.origin + '/harga/' + id,
       method: 'delete',
     }).then(function (response) {
       console.log(response);

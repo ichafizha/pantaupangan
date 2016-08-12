@@ -16,13 +16,13 @@ block content
               th.mdl-data-table__cell--non-numeric Harga
               th
             each c, i in comodities
-              tr
+              tr(class='id-#{c._id}')
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= c.tanggal
                 td.mdl-data-table__cell--non-numeric= c.komoditas
                 td= c.harga
                 td     
-                  a(href='/harga/#{c._id}/delete').material-icons(role='presentation') delete
+                  a(href='javasript:;' onClick='deleteHarga("#{c._id}", "#{c.komoditas}", "#{c.tanggal}") ').material-icons(role='presentation') delete
                 td     
                   a(href='/harga/#{c._id}/update').material-icons(role='presentation') mode_edit
     a#addHarga.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/harga/add')

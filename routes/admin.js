@@ -42,7 +42,7 @@ admin.post('/user/:id/update', UserController.ensureAuthenticated, AdminControll
 admin.get('/harga', UserController.ensureAuthenticated, HargaController.harga);
 admin.get('/harga/add', UserController.ensureAuthenticated, HargaController.tampilAddHarga);
 admin.post('/harga/add', UserController.ensureAuthenticated, HargaController.addHarga);
-admin.get('/harga/:id/delete', UserController.ensureAuthenticated, HargaController.deleteHarga);
+admin.delete('/harga/:id', UserController.ensureAuthenticated, HargaController.deleteHarga);
 admin.get('/harga/:id/update', UserController.ensureAuthenticated, HargaController.tampilUpdateHarga);
 admin.post('/harga/:id/update', UserController.ensureAuthenticated, HargaController.updateHarga);
 

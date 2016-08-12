@@ -18,6 +18,7 @@ exports.indeks = function(req, res, next) {
     res.render('admin/indeks/indeks', {
       title: 'Indeks dan Inflasi',
       indexes: dataIndeks,
+      js: 'admin-indeks',
     });
   });
 };
@@ -48,7 +49,10 @@ exports.deleteIndeks = function(req, res, next) {
   Indeks.findByIdAndRemove(req.params.id, function(err, data) {
     if (err) next(err);
 
-    res.redirect('/indeks');
+    res.json({
+      statusCode: 204,
+      message: `${data.indeks} berhasil di hapus!`,
+    })
   });
 };
 

@@ -5,6 +5,7 @@ exports.produksi = function(req, res, next) {
     res.render('admin/produksi/produksi', {
       title: 'Produksi Pangan',
       productions: data,
+      js: 'admin-produksi',
     });
   });
 };
@@ -36,7 +37,10 @@ exports.deleteProduksi = function(req, res, next) {
   Produksi.findByIdAndRemove(req.params.id, function(err, data) {
     if (err) next(err);
 
-    res.redirect('/produksi');
+    res.json({
+        statusCode: 204,
+        message: `${data.produksi} ${data.tahun} berhasil di hapus!`,
+      })
   });
 };
 

@@ -5,7 +5,7 @@ exports.user = function(req, res, next) {
     res.render('admin/user/user', {
       title: 'Manage User',
       users: data,
-      js: 'admin'
+      js: 'admin-admin',
     });
   });
 };
@@ -34,9 +34,12 @@ exports.addUser = function(req, res, next) {
 
 exports.deleteUser = function(req, res, next) {
   User.findByIdAndRemove(req.params.id, function (err, data) {
-      if (err) throw (err)
+      if (err) next(err);
 
-      res.redirect('/user');
+      res.json({
+        statusCode: 204,
+        message: `${data.name} berhasil di hapus!`,
+      })
   })
 }
 

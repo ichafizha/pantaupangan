@@ -12,7 +12,8 @@ exports.index = function(req, res) {
     return res.render('admin/index', {
       title: 'Home',
       pageTitle: 'Pantau Pangan',
-      subTitle: 'Visualisasi Open Data Pangan Jawa Barat'
+      subTitle: 'Visualisasi Open Data Pangan Jawa Barat',
+      js: 'admin-dashboard'
     });
   } else {
     async.waterfall([

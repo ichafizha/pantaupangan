@@ -25,5 +25,7 @@ block content
                   a(href='/indeks/#{c._id}/delete').material-icons(role='presentation') delete
                 td
                   a(href='/indeks/#{c._id}/update').material-icons(role='presentation') mode_edit
-    a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/indeks/add')
+    a#addIndeks.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/indeks/add')
       i.material-icons add
+
+    div.mdl-tooltip.mdl-tooltip--left(for='addIndeks') Add Indeks

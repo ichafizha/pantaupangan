@@ -28,5 +28,7 @@ block content
                   a(href='/produksi/#{p._id.}/delete').material-icons(role='presentation') delete
                 td
                   a(href='/produksi/#{p._id}/update').material-icons(role='presentation') mode_edit
-    a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/produksi/add')
+    a#addProduksi.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/produksi/add')
       i.material-icons add
+    
+    div.mdl-tooltip.mdl-tooltip--left(for='addProduksi') Add Produksi

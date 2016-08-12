@@ -21,7 +21,7 @@ require('./config/passport');
 const app = express();
 
 mongoose.connect(process.env.MONGODB);
-mongoose.connection.on('error', function() {
+mongoose.connection.on('error', () => {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
 });
@@ -32,7 +32,7 @@ app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: false,
 }));
 app.use(expressValidator());
 app.use(methodOverride('_method'));
@@ -43,12 +43,12 @@ app.use(session({
   store: new MongoStore({
     url: process.env.MONGODB,
     autoReconnect: true,
-  })
+  }),
 }));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
@@ -60,13 +60,13 @@ app.use('/api/v1', require('./routes/api'));
 
 // Production error handler
 if (app.get('env') === 'production') {
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     console.error(err.stack);
     res.sendStatus(err.status || 500);
   });
 }
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
 

@@ -23,7 +23,8 @@ block content
                   a(href='/user/#{u._id}/delete').material-icons(role='presentation') delete
                 td
                   a(href='/user/#{u._id}/update').material-icons(role='presentation') mode_edit
-    a.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/user/add')
+    a#addUser.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/user/add')
       i.material-icons add
     
+    div.mdl-tooltip.mdl-tooltip--left(for='addUser') Add User
     

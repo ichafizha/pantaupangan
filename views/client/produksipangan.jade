@@ -9,6 +9,15 @@ block content-client
 				.mdl-cell.mdl-cell--8-col.mdl-cell--2-offset.mdl-card.mdl-shadow--2dp
 					#chart_div.with-3d-shadow.with-transitions(style='width: 900px; height: 500px;')
 						svg(style='display: block;')
-			
+			.mdl-grid
+				.mdl-cell.mdl-cell--8-col.mdl-cell--2-offset.mdl-card.mdl-shadow--2dp
+					table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp(style='width:50%;')
+						thead
+							th.mdl-data-table__cell--non-numeric Cluster
+							th.mdl-data-table__cell--non-numeric Komoditas
+						each c in hasil
+							tr
+								td= c.cluster
+								td.mdl-data-table__cell--non-numeric= c.komoditas
 		//- 	#overview.mdl-layout__tab-panel.is-active
 		//- 		section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp

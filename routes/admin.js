@@ -1,15 +1,15 @@
-var express = require('express');
+const express = require('express');
 
-var admin = express.Router();
+const admin = express.Router();
 
 // Controllers
-var HomeController = require('../controllers/home');
-var UserController = require('../controllers/user');
-var AdminController = require('../controllers/admin');
-var HargaController = require('../controllers/harga');
-var PendudukController = require('../controllers/penduduk');
-var IndeksController = require('../controllers/indeks');
-var ProduksiController = require('../controllers/produksi');
+const HomeController = require('../controllers/home');
+const UserController = require('../controllers/user');
+const AdminController = require('../controllers/admin');
+const HargaController = require('../controllers/harga');
+const PendudukController = require('../controllers/penduduk');
+const IndeksController = require('../controllers/indeks');
+const ProduksiController = require('../controllers/produksi');
 
 admin.get('/', HomeController.index);
 admin.put('/account', UserController.ensureAuthenticated, UserController.accountPut);

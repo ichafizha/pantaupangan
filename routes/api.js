@@ -1,15 +1,10 @@
 const express = require('express');
 const api = express.Router();
 
-var HomeContorller = require('../controllers/home');
-var UserController = require('../controllers/user');
-var AdminController = require('../controllers/api/apiAdmin');
-var HargaController = require('../controllers/harga');
-var PendudukController = require('../controllers/penduduk');
-var IndeksController = require('../controllers/indeks');
-var ProduksiController = require('../controllers/produksi');
-var ApiClientController = require('../controllers/api/apiClient');
-var ClientController = require('../controllers/client');
+const StatsController = require('../controllers/stats');
+const ApiClientController = require('../controllers/api/apiClient');
+const ClientController = require('../controllers/client');
+const UserController = require('../controllers/user');
 
 //API client
 api.get('/harga', ApiClientController.getAllHarga);
@@ -21,6 +16,7 @@ api.get('/penduduk', ApiClientController.getAllPenduduk);
 api.get('/penduduk/:id', ApiClientController.getSelectedPenduduk);
 api.get('/produksi', ApiClientController.getAllProduksi);
 api.get('/produksi/:id', ApiClientController.getSelectedProduksi);
-api.get('/komoditas/cluster', ClientController.clusterKomoditasAPI)
+api.get('/komoditas/cluster', ClientController.clusterKomoditasAPI);
+api.get('/stats', UserController.ensureAuthenticated, StatsController.getStats);
 
 module.exports = api;

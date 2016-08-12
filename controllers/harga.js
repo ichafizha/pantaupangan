@@ -18,7 +18,7 @@ exports.harga = function(req, res, next) {
     res.render('admin/harga/harga', {
       title: 'Harga',
       comodities: dataHarga,
-      js: 'harga',
+      js: 'admin-harga',
     });
   });
 };
@@ -51,7 +51,7 @@ exports.deleteHarga = function(req, res, next) {
 
     res.json({
       statusCode: 204,
-      message: `${data.komoditas} date ${data.tanggal} has been succesful delete`,
+      message: `${data.komoditas} tanggal ${data.tanggal} berhasil di hapus!`,
     })
   });
 };

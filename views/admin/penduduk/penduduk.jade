@@ -16,13 +16,13 @@ block content
               th.mdl-data-table__cell--non-numeric PPH (Pola Pangan Harapan)
               th
             each p, i in penduduks
-              tr
+              tr(class='id-#{p._id}')
                 td= i+1
                 td= p.tahun
                 td= p.penduduk
                 td= p.pph
                 td
-                  a(href='/penduduk/#{p._id}/delete').material-icons(role='presentation') delete
+                  a(href='javasript:;' onClick='deletePenduduk("#{p._id}", "#{p.penduduk}", "#{p.tahun}") ').material-icons(role='presentation') delete
                 td
                   a(href='/penduduk/#{p._id}/update').material-icons(role='presentation') mode_edit
     a#addPenduduk.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/penduduk/add')

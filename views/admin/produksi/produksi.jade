@@ -18,14 +18,14 @@ block content
               th.mdl-data-table__cell--non-numeric Produksi
               th
             each p, i in productions
-              tr
+              tr(class='id-#{p._id}')
                 td= i+1
                 td= p.tahun
                 td.mdl-data-table__cell--non-numeric= p.komoditas
                 td= p.luas
                 td= p.produksi
                 td
-                  a(href='/produksi/#{p._id.}/delete').material-icons(role='presentation') delete
+                  a(href='javasript:;' onClick='deleteProduksi("#{p._id}", "#{p.komoditas}", "#{p.tahun}")').material-icons(role='presentation') delete
                 td
                   a(href='/produksi/#{p._id}/update').material-icons(role='presentation') mode_edit
     a#addProduksi.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/produksi/add')

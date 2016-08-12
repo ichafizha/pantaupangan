@@ -21,6 +21,6 @@ block content
               input.mdl-textfield__input(type='number' name='penduduk' value='#{data.penduduk}')
               label.mdl-textfield__label Jumlah Penduduk
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' onkeypress='validate(event)' name='pph' value='#{data.pph}')
+              input.mdl-textfield__input(type='number' step='0.01' name='pph' value='#{data.pph}')
               label.mdl-textfield__label Pola Pangan Harapan
             input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Simpan' style='width:100%')

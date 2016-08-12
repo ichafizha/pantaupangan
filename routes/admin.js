@@ -49,21 +49,21 @@ admin.post('/harga/:id/update', UserController.ensureAuthenticated, HargaControl
 admin.get('/penduduk', UserController.ensureAuthenticated, PendudukController.penduduk);
 admin.get('/penduduk/add', UserController.ensureAuthenticated, PendudukController.tampilAddPenduduk);
 admin.post('/penduduk/add', UserController.ensureAuthenticated, PendudukController.addPenduduk);
-admin.get('/penduduk/:id/delete', UserController.ensureAuthenticated, PendudukController.deletePenduduk);
+admin.delete('/penduduk/:id', UserController.ensureAuthenticated, PendudukController.deletePenduduk);
 admin.get('/penduduk/:id/update', UserController.ensureAuthenticated, PendudukController.tampilUpdatePenduduk);
 admin.post('/penduduk/:id/update', UserController.ensureAuthenticated, PendudukController.updatePenduduk);
 
 admin.get('/indeks', UserController.ensureAuthenticated, IndeksController.indeks);
 admin.get('/indeks/add', UserController.ensureAuthenticated, IndeksController.tampilAddIndeks);
 admin.post('/indeks/add', UserController.ensureAuthenticated, IndeksController.addIndeks);
-admin.get('/indeks/:id/delete', UserController.ensureAuthenticated, IndeksController.deleteIndeks);
+admin.delete('/indeks/:id', UserController.ensureAuthenticated, IndeksController.deleteIndeks);
 admin.get('/indeks/:id/update', UserController.ensureAuthenticated, IndeksController.tampilUpdateIndeks);
 admin.post('/indeks/:id/update', UserController.ensureAuthenticated, IndeksController.updateIndeks);
 
 admin.get('/produksi', UserController.ensureAuthenticated, ProduksiController.produksi);
 admin.get('/produksi/add', UserController.ensureAuthenticated, ProduksiController.tampilAddProduksi);
 admin.post('/produksi/add', UserController.ensureAuthenticated, ProduksiController.addProduksi);
-admin.get('/produksi/:id/delete', UserController.ensureAuthenticated, ProduksiController.deleteProduksi);
+admin.delete('/produksi/:id', UserController.ensureAuthenticated, ProduksiController.deleteProduksi);
 admin.get('/produksi/:id/update', UserController.ensureAuthenticated, ProduksiController.tampilUpdateProduksi);
 admin.post('/produksi/:id/update', UserController.ensureAuthenticated, ProduksiController.updateProduksi);
 //admin.get('/produksi/cluster', UserController.ensureAuthenticated, ProduksiController.clusterKomoditas);

@@ -5,7 +5,7 @@ exports.user = function(req, res, next) {
     res.render('admin/user/user', {
       title: 'Manage User',
       users: data,
-      js: 'admin'
+      js: 'admin-admin',
     });
   });
 };
@@ -38,7 +38,7 @@ exports.deleteUser = function(req, res, next) {
 
       res.json({
         statusCode: 204,
-        message: `${data.name} has been succesful delete`,
+        message: `${data.name} berhasil di hapus!`,
       })
   })
 }

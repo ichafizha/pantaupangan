@@ -18,9 +18,9 @@ block content
               input.mdl-textfield__input(type='month' name='bulan' value='#{data.bulan}' placeholder="")
               label.mdl-textfield__label Bulan-Tahun
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' onkeypress='validate(event)' name='indeks' value='#{data.indeks}')
+              input.mdl-textfield__input(type='text' step='0.01' name='indeks' value='#{data.indeks}')
               label.mdl-textfield__label Indeks Harga Eceran
             .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' onkeypress='validate(event)' name='inflasi' value='#{data.inflasi}')
+              input.mdl-textfield__input(type='text' step='0.01' name='inflasi' value='#{data.inflasi}')
               label.mdl-textfield__label Inflasi
             input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(type='submit' value='Simpan' style='width:100%')

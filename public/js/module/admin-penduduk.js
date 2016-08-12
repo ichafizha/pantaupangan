@@ -1,18 +1,18 @@
 'use strict';
 
-function deleteHarga(id, komoditas, tanggal) {
+function deletePenduduk(id, penduduk, tahun) {
   console.log(id);
   swal({
-    title: 'Are you sure wanna delete user komoditas ' + komoditas + ' with date '+ tanggal +' ?',
+    title: 'Anda yakin ingin menghapus penduduk ' + penduduk + ' pada tahun '+ tahun +' ?',
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#DD6B55',
-    confirmButtonText: 'Yes, delete it!',
+    confirmButtonText: 'Ya, hapus!',
     closeOnConfirm: false,
     showLoaderOnConfirm: true,
   }, function () {
     $.ajax({
-      url: location.origin + '/harga/' + id,
+      url: location.origin + '/penduduk/' + id,
       method: 'delete',
     }).then(function (response) {
       console.log(response);

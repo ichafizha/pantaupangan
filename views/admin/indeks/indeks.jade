@@ -16,13 +16,13 @@ block content
               th.mdl-data-table__cell--non-numeric Inflasi
               th
             each c, i in indexes
-              tr
+              tr(class='id#{c._id}')
                 td= i+1
                 td.mdl-data-table__cell--non-numeric= c.bulan
                 td= c.indeks
                 td= c.inflasi
                 td
-                  a(href='/indeks/#{c._id}/delete').material-icons(role='presentation') delete
+                  a(href='javasript:;' onClick='deleteIndeks("#{c._id}", "#{c.indeks}", "#{c.bulan}")').material-icons(role='presentation') delete
                 td
                   a(href='/indeks/#{c._id}/update').material-icons(role='presentation') mode_edit
     a#addIndeks.fab.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(href='/indeks/add')

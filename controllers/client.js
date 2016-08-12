@@ -96,13 +96,13 @@ exports.clusterKomoditasAPI = function(req, res, next) {
 };
 
 exports.penduduk = function(req, res, next) {
-	res.render('/client/penduduk', {
+	res.render('client/penduduk', {
 		title: 'Pergerakan PPH terhadap jumlah penduduk'
 	});
 };
 
 exports.indeks = function(req, res, next) {
-	res.render('/client/indeks', {
+	res.render('client/indeks', {
 		title: 'Pergerakan inflasi terhadap indeks harga konsumen'
 	});
 };

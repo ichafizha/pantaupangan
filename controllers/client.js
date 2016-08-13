@@ -27,7 +27,7 @@ exports.tampilDataKomoditas = function(req, res, next) {
 
 exports.clusterKomoditas = function(req, res, next) {
 	Produksi.find({}, (err, data) => {
-		var produksi = data;
+		let produksi = data;
 
 		let vectors = [];
 		for (let i = 0; i < produksi.length; i++) {
@@ -65,13 +65,14 @@ exports.clusterKomoditas = function(req, res, next) {
 
 exports.clusterKomoditasAPI = function(req, res, next) {
 	Produksi.find({}, (err, data) => {
-		var produksi = data;
+		let produksi = data;
+		//console.log(produksi)
 
 		let vectors = [];
-		for (var i = 0; i < produksi.length; i++) {
-		};
+		for (let i = 0; i < produksi.length; i++) {
 			vectors[i] = [produksi[i]['luas'], produksi[i]['produksi']];
-
+		};
+		
 		let hasilKamins = [];
 		kmeans.clusterize(vectors, {
 			k: 3
@@ -115,9 +116,9 @@ exports.indeks = function (req, res, next) {
 
 exports.indeksAPI = function(req, res, next) {
 	Indeks.find({}, (err, data) => {
-		var hasil = data;
-		var gradien= 0.002;
-		var regresiArray = [];
+		let hasil = data;
+		let gradien= 0.002;
+		let regresiArray = [];
 
 		hasil.map(datum => {
 			regresiArray.push({

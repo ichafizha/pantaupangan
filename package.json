@@ -37,6 +37,7 @@
     "numeral": "^1.5.3",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "regression-trend": "^1.0.5",
     "shaman": "^0.3.2",
     "sweetalert": "^1.1.3"
   },

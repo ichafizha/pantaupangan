@@ -1,5 +1,8 @@
 var Produksi = require('../models/Produksi');
+var Indeks = require('../models/Indeks');
+var Penduduk = require('../models/Penduduk');
 const kmeans = require('node-kmeans');
+const regression = require('regression-trend');
 var moment = require('moment');
 
 moment.locale('id');
@@ -65,9 +68,9 @@ exports.clusterKomoditasAPI = function(req, res, next) {
 		var produksi = data;
 
 		let vectors = [];
-		for (let i = 0; i < produksi.length; i++) {
-			vectors[i] = [produksi[i]['luas'], produksi[i]['produksi']];
+		for (var i = 0; i < produksi.length; i++) {
 		};
+			vectors[i] = [produksi[i]['luas'], produksi[i]['produksi']];
 
 		let hasilKamins = [];
 		kmeans.clusterize(vectors, {
@@ -96,13 +99,46 @@ exports.clusterKomoditasAPI = function(req, res, next) {
 };
 
 exports.penduduk = function(req, res, next) {
+	
+
 	res.render('client/penduduk', {
 		title: 'Pergerakan PPH terhadap jumlah penduduk'
 	});
 };
 
-exports.indeks = function(req, res, next) {
+exports.indeks = function (req, res, next) { 
 	res.render('client/indeks', {
-		title: 'Pergerakan inflasi terhadap indeks harga konsumen'
+		title: 'Pergerakan inflasi terhadap indeks harga konsumen',
+		js: 'indeks-inflasi'
+	});
+ };
+
+exports.indeksAPI = function(req, res, next) {
+	Indeks.find({}, (err, data) => {
+		var hasil = data;
+		var gradien= 0.002;
+		var regresiArray = [];
+
+		hasil.map(datum => {
+			regresiArray.push({
+				x: datum.indeks,
+				y: datum.inflasi
+			});
+			return regresiArray
+		})
+
+		// for (let i = 0; i < hasil.length; i++) {
+		// 	regresiArray[i] = [hasil[i]['inflasi'], hasil[i]['indeks']];
+		// };
+		 console.log(regresiArray);
+
+		// var result = regression.generate(regresiArray);
+		// console.log(result);
+
+		res.json({
+				statusCode: 200,
+				message: 'success get hasil kamins',
+				data: regresiArray,
+			});
 	});
 };

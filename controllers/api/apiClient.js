@@ -2,7 +2,9 @@ const Harga = require('../../models/Harga');
 const Indeks = require('../../models/Indeks');
 const Penduduk = require('../../models/Penduduk');
 const Produksi = require('../../models/Produksi');
-
+const kmeans = require('node-kmeans');
+const regression = require('regression-trend');
+var moment = require('moment');
 
 function toTitleCase(str) {
   return str.replace(/\w\S*/g, function(txt) {
@@ -138,6 +140,89 @@ exports.getSelectedProduksi = (req, res, next) => {
       statusCode: 200,
       message: 'success get selected data by id',
       data: produksi,
+    });
+  });
+};
+
+exports.indeksAPI = function(req, res, next) {
+  Indeks.find({}, (err, data) => {
+    let hasil = data;
+    let regresiArray = [];
+
+    hasil.map(datum => {
+      regresiArray.push({
+        x: datum.indeks,
+        y: datum.inflasi
+      });
+      return regresiArray
+    });
+
+    //console.log(regresiArray);
+
+    // var result = regression.generate(regresiArray);
+    // console.log(result);
+
+    res.json({
+      statusCode: 200,
+      message: 'success get hasil kamins',
+      data: regresiArray,
+    });
+  });
+};
+
+exports.pendudukAPI = function(req, res, next) {
+  Penduduk.find({}, (err, data) => {
+    let hasil = data;
+    let regresiArray = [];
+
+    hasil.map(datum => {
+      regresiArray.push({
+        x: datum.penduduk,
+        y: datum.pph
+      });
+      return regresiArray;
+    });
+
+    res.json({
+      statusCode: 200,
+      message: 'Success get pergerakan pph API data',
+      data: regresiArray,
+    });
+  });
+};
+
+exports.clusterKomoditasAPI = function(req, res, next) {
+  Produksi.find({}, (err, data) => {
+    let produksi = data;
+    //console.log(produksi)
+
+    let vectors = [];
+    for (let i = 0; i < produksi.length; i++) {
+      vectors[i] = [produksi[i]['luas'], produksi[i]['produksi']];
+    };
+
+    let hasilKamins = [];
+    kmeans.clusterize(vectors, {
+      k: 3
+    }, (err, dataCluster) => {
+      if (err) console.error(err);
+      //  else console.log('%o', dataCluster);
+      dataCluster.map((kamins, i) => {
+        kamins.clusterInd.map(kamin => {
+          hasilKamins.push({
+            komoditas: produksi[kamin].komoditas,
+            luas: produksi[kamin].luas,
+            produksi: produksi[kamin].produksi,
+            cluster: i
+          });
+        });
+      });
+      //console.log(hasilKamins);
+      res.json({
+        statusCode: 200,
+        message: 'success get hasil kamins',
+        data: hasilKamins,
+      });
     });
   });
 };

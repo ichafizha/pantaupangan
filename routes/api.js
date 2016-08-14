@@ -16,8 +16,9 @@ api.get('/penduduk', ApiClientController.getAllPenduduk);
 api.get('/penduduk/:id', ApiClientController.getSelectedPenduduk);
 api.get('/produksi', ApiClientController.getAllProduksi);
 api.get('/produksi/:id', ApiClientController.getSelectedProduksi);
-api.get('/pergerakanindeks', ClientController.indeksAPI);
-api.get('/komoditas/cluster', ClientController.clusterKomoditasAPI);
+api.get('/pergerakaninflasi', ApiClientController.indeksAPI);
+api.get('/pergerakanpph', ApiClientController.pendudukAPI);
+api.get('/komoditas/cluster', ApiClientController.clusterKomoditasAPI);
 api.get('/stats', UserController.ensureAuthenticated, StatsController.getStats);
 
 module.exports = api;

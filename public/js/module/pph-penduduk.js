@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-  $.get(location.origin + '/api/v1/pergerakaninflasi')
+  $.get(location.origin + '/api/v1/pergerakanpph')
     .then(function(response) {
       console.log('masuk');
       console.log(response);
@@ -39,8 +39,8 @@
           data.push({
             key: 'Group ' + i,
             values: [],
-            slope: 0.002,
-            intercept: 0.54
+            slope: 0.00000008,
+            intercept: 69.8
           });
           for (var j = 0; j < indeks.length; j++) {
             data[i].values.push({

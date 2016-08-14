@@ -48,98 +48,26 @@ exports.clusterKomoditas = function(req, res, next) {
 					});
 				})
 			})
-		console.log(hasilKamins);
-		res.render('client/produksipangan', {
-			title: 'Visualisasi Kelompok Komoditas Berdasarkan Lahan Panen & Produksi',
-			hasil: hasilKamins,
-			js: 'produksipangan',
-		});	
-		});
-
-
-		// res.map(klaster, i) => {
-		//   klaster.map()
-		// }
-	});
-};
-
-exports.clusterKomoditasAPI = function(req, res, next) {
-	Produksi.find({}, (err, data) => {
-		let produksi = data;
-		//console.log(produksi)
-
-		let vectors = [];
-		for (let i = 0; i < produksi.length; i++) {
-			vectors[i] = [produksi[i]['luas'], produksi[i]['produksi']];
-		};
-		
-		let hasilKamins = [];
-		kmeans.clusterize(vectors, {
-			k: 3
-		}, (err, dataCluster) => {
-			if (err) console.error(err);
-			//  else console.log('%o', dataCluster);
-			dataCluster.map((kamins, i) => {
-				kamins.clusterInd.map(kamin => {
-					hasilKamins.push({
-						komoditas: produksi[kamin].komoditas,
-						luas: produksi[kamin].luas,
-						produksi: produksi[kamin].produksi,
-						cluster: i
-					});
-				});
-			});
-			//console.log(hasilKamins);
-			res.json({
-				statusCode: 200,
-				message: 'success get hasil kamins',
-				data: hasilKamins,
+			console.log(hasilKamins);
+			res.render('client/produksipangan', {
+				title: 'Visualisasi Kelompok Komoditas Berdasarkan Lahan Panen & Produksi',
+				hasil: hasilKamins,
+				js: 'produksipangan',
 			});
 		});
 	});
 };
 
 exports.penduduk = function(req, res, next) {
-	
-
 	res.render('client/penduduk', {
-		title: 'Pergerakan PPH terhadap jumlah penduduk'
+		title: 'Pergerakan PPH terhadap jumlah penduduk',
+		js: 'pph-penduduk'
 	});
 };
 
-exports.indeks = function (req, res, next) { 
+exports.indeks = function(req, res, next) {
 	res.render('client/indeks', {
 		title: 'Pergerakan inflasi terhadap indeks harga konsumen',
 		js: 'indeks-inflasi'
-	});
- };
-
-exports.indeksAPI = function(req, res, next) {
-	Indeks.find({}, (err, data) => {
-		let hasil = data;
-		let gradien= 0.002;
-		let regresiArray = [];
-
-		hasil.map(datum => {
-			regresiArray.push({
-				x: datum.indeks,
-				y: datum.inflasi
-			});
-			return regresiArray
-		})
-
-		// for (let i = 0; i < hasil.length; i++) {
-		// 	regresiArray[i] = [hasil[i]['inflasi'], hasil[i]['indeks']];
-		// };
-		 console.log(regresiArray);
-
-		// var result = regression.generate(regresiArray);
-		// console.log(result);
-
-		res.json({
-				statusCode: 200,
-				message: 'success get hasil kamins',
-				data: regresiArray,
-			});
 	});
 };

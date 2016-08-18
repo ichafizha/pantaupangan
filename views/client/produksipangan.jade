@@ -6,11 +6,11 @@ block content-client
 		//input(type='hidden' value='#{namaKomoditas}' id='nama-komoditas')
 		main.mdl-layout__content.mdl-layout__content--margin.margin-new
 			.mdl-grid
-				.mdl-cell.mdl-cell--8-col.mdl-cell--2-offset.mdl-card.mdl-shadow--2dp
+				.mdl-cell.mdl-cell--8-col.mdl-card.mdl-shadow--2dp
 					#chart_div.with-3d-shadow.with-transitions(style='width: 900px; height: 500px;')
 						svg(style='display: block;')
-				.mdl-cell.mdl-cell--8-col.mdl-cell--2-offset.mdl-card.mdl-shadow--2dp
-					table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp(style='width:50%;')
+				.mdl-cell.mdl-cell--4-col.mdl-card.mdl-shadow--2dp(style='height:500px; overflow-y: scroll')
+					table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp(style='width:100%;')
 						thead
 							th.mdl-data-table__cell--non-numeric Cluster
 							th.mdl-data-table__cell--non-numeric Komoditas

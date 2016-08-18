@@ -165,3 +165,8 @@ _:-ms-input-placeholder, :root .demo-graph {
   box-sizing: border-box;
   align-items: center;
 }
+
+.admin-is-active {
+  background-color: #303e45 !important;
+  color: rgba(255, 255, 255, 0.56) !important;
+}

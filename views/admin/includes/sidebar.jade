@@ -5,22 +5,22 @@
       p= user.name
       p(style='color:#9e9e9e')= user.email
   nav.demo-navigation.mdl-navigation.mdl-color--blue-grey-800
-    a.mdl-navigation__link(href='/')
+    a.mdl-navigation__link(href='/'  class=((title == 'Home') ? 'admin-is-active': null) )
       i.mdl-color-text--blue-grey-400.material-icons(role='presentation') home
       | Home
-    a.mdl-navigation__link(href='/user')
+    a.mdl-navigation__link(href='/user' class=((title == 'Manage User') || (title == 'Tambah User') || (title == 'Edit Data User') ? 'admin-is-active': null) )
       i.mdl-color-text--blue-grey-400.material-icons(role='presentation') people
       | User
-    a.mdl-navigation__link(href='/harga')
+    a.mdl-navigation__link(href='/harga' class=((title == 'Harga') || (title == 'Tambah Harga Komoditas') || (title == 'Edit Data Harga') ? 'admin-is-active': null) )
       i.mdl-color-text--blue-grey-400.material-icons(role='presentation') monetization_on
       | Harga
-    a.mdl-navigation__link(href='/penduduk')
+    a.mdl-navigation__link(href='/penduduk' class=((title == 'Penduduk dan PPH') || (title == 'Tambah Penduduk dan PPH') || (title == 'Edit Data Penduduk & PPH') ? 'admin-is-active': null) )
       i.mdl-color-text--blue-grey-400.material-icons(role='presentation') accessibility
       | Penduduk & PPH
-    a.mdl-navigation__link(href='/indeks')
+    a.mdl-navigation__link(href='/indeks' class=((title == 'Indeks dan Inflasi') || (title == 'Tambah Indeks dan Inflasi') || (title == 'Edit Data Indeks') ? 'admin-is-active': null) )
       i.mdl-color-text--blue-grey-400.material-icons(role='presentation') trending_up
       | IHK & Inflasi
-    a.mdl-navigation__link(href='/produksi')
+    a.mdl-navigation__link(href='/produksi' class=((title == 'Produksi Pangan') || (title == 'Tambah Produksi Pangan') || (title == 'Edit Data Produksi') ? 'admin-is-active': null) )
       i.mdl-color-text--blue-grey-400.material-icons(role='presentation') local_florist
       | Lahan Panen & Produksi
     a.mdl-navigation__link(href='/logout')

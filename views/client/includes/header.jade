@@ -6,10 +6,10 @@
 			p.sub-title Visualisasi Open Data Pangan Jawa Barat
 		.mdl-layout--large-screen-only.mdl-layout__header-row
 		.mdl-layout__tab-bar.mdl-js-ripple-effect.mdl-color--primary-dark
-			a.mdl-layout__tab.is-active(href='/') Home
-			a.mdl-layout__tab(href='/pph') PPH
-			a.mdl-layout__tab(href='/inflasi') Inflasi
-			a.mdl-layout__tab(href='/produksipangan') Produksi Pangan
+			a.mdl-layout__tab(href='/' class=((title == 'Home') ? 'is-active' : null)) Home
+			a.mdl-layout__tab(href='/pph' class=((title == 'Pergerakan PPH terhadap jumlah penduduk') ? 'is-active' : null)) PPH
+			a.mdl-layout__tab(href='/inflasi' class=((title == 'Pergerakan inflasi terhadap indeks harga konsumen') ? 'is-active' : null)) Inflasi
+			a.mdl-layout__tab(href='/produksipangan' class=((title == 'Visualisasi Kelompok Komoditas Berdasarkan Lahan Panen & Produksi') ? 'is-active' : null)) Produksi Pangan
 			//-a.mdl-layout__tab(href='#features') FAQ
 			//- button#add.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.mdl-shadow--4dp.mdl-color--accent
 			//- 	i.material-icons(role='presentation') add

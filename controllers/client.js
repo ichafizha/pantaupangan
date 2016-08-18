@@ -44,6 +44,8 @@ exports.clusterKomoditas = function(req, res, next) {
 				kamins.clusterInd.map(kamin => {
 					hasilKamins.push({
 						komoditas: produksi[kamin].komoditas,
+						luas: produksi[kamin].luas,
+						produksilahan: produksi[kamin].produksi,
 						cluster: i
 					});
 				})

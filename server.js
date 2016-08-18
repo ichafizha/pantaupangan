@@ -27,7 +27,7 @@ mongoose.connection.on('error', () => {
 });
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());

@@ -14,9 +14,13 @@ block content-client
 						thead
 							th.mdl-data-table__cell--non-numeric Cluster
 							th.mdl-data-table__cell--non-numeric Komoditas
+							th.mdl-data-table__cell--non-numeric Luas
+							th.mdl-data-table__cell--non-numeric Produksi
 						each c in hasil
 							tr
 								td= c.cluster
 								td.mdl-data-table__cell--non-numeric= c.komoditas
+								td.mdl-data-table__cell--non-numeric= c.luas
+								td.mdl-data-table__cell--non-numeric= c.produksilahan
 		//- 	#overview.mdl-layout__tab-panel.is-active
 		//- 		section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp

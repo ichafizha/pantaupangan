@@ -13,7 +13,8 @@ block content-client
 							each k in komoditas
 								li.mdl-list__item.mdl-list__item--custom
 									span= k.komoditas
-									span Rp. #{k.hargaString}/kg
+									div(style='width:20%; text-align:left')
+										span Rp. #{k.hargaString}/kg
 									span
 										a.mdl-button.mdl-js-button.mdl-button--primary(href='/komoditas/#{k.komoditas}')
 											| Lihat Fluktuasi

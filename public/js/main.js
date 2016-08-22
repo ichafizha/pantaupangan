@@ -1,7 +1,4 @@
-$(function() {
-  // $.ajax(location.origin + '/api/admin')
-  //   .then((err, data) => {
-  //     console.log(err);
-  //     console.log(data);
-  //   })
-});
+$.get(location.origin + '/api/v1/stats/harga')
+  .then(function(res) {
+    console.log(res.data)
+  })

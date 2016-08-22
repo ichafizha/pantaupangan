@@ -6,6 +6,24 @@ block content-client
 
 		main.mdl-layout__content.mdl-layout__content--margin.margin-new
 			#overview.mdl-layout__tab-panel.is-active
+				.stat-harga-container
+					each stat in statKomoditas
+						.stat-harga.mdl-shadow--2dp
+							.stat-harga__left
+								p 
+									if stat.status == 'naik'
+										i.material-icons.naik arrow_upward
+									if stat.status == 'turun'
+										i.material-icons.turun arrow_downward
+									if stat.status == 'stabil'
+										i.material-icons.stabil menu
+									
+							.stat-harga__content
+								.stat-harga__content--header
+									p= stat.komoditas
+								.stat-harga__content--price
+									p Rp. #{stat.hargaBaru}/kg
+
 				section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp
 					h4.card-header= today
 					.mdl-card.mdl-card--custom.mdl-cell.mdl-cell--12-col

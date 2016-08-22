@@ -416,6 +416,52 @@ _:-ms-input-placeholder, :root .demo-graph {
   background-color: #303e45 !important;
   color: rgba(255, 255, 255, 0.56) !important; }
 
+.stat-harga-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+
+.stat-harga {
+  width: 250px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 25px;
+  margin-left: 25px; }
+  .stat-harga__left {
+    align-self: center;
+    justify-content: center; }
+    .stat-harga__left p {
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin: 0;
+      font-size: 2em; }
+      .stat-harga__left p i {
+        font-size: 2em; }
+  .stat-harga__content {
+    justify-content: center;
+    flex-direction: column; }
+    .stat-harga__content--price p {
+      margin: 0;
+      padding: 10px; }
+    .stat-harga__content--header {
+      border-bottom: 1px solid #bdbdbd; }
+      .stat-harga__content--header p {
+        font-size: 1.5em;
+        color: #607D8B;
+        margin: 0;
+        padding: 10px; }
+
+.naik {
+  color: #F44336; }
+
+.turun {
+  color: #4CAF50; }
+
+.stabil {
+  color: #9E9E9E; }
+
 .fab {
   position: absolute;
   bottom: 5%;

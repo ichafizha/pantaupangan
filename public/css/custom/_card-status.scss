@@ -1,0 +1,63 @@
+.stat-harga-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stat-harga {
+  width: 250px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 25px;
+  margin-left: 25px;
+
+  &__left {
+    align-self: center;
+    justify-content: center;
+    p {
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;      
+      margin: 0;
+      font-size: 2em;
+      i {
+        font-size: 2em;
+      }
+    }
+  }
+
+  &__content {
+    justify-content: center;
+    flex-direction: column;
+
+    &--price {
+      p {
+        margin: 0;
+        padding: 10px
+      }
+    }
+
+    &--header {
+      border-bottom: 1px solid #bdbdbd;
+      p {
+        font-size: 1.5em;
+        color: #607D8B;
+        margin: 0;
+        padding: 10px
+      }
+    }
+  }
+}
+
+.naik {
+  color: #F44336;
+}
+
+.turun {
+  color: #4CAF50;
+}
+
+.stabil {
+  color: #9E9E9E;
+}

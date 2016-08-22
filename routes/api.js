@@ -20,5 +20,6 @@ api.get('/pergerakaninflasi', ApiClientController.indeksAPI);
 api.get('/pergerakanpph', ApiClientController.pendudukAPI);
 api.get('/komoditas/cluster', ApiClientController.clusterKomoditasAPI);
 api.get('/stats', UserController.ensureAuthenticated, StatsController.getStats);
+api.get('/stats/harga', ApiClientController.statAllHarga);
 
 module.exports = api;

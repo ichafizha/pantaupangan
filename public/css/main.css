@@ -444,7 +444,8 @@ _:-ms-input-placeholder, :root .demo-graph {
     flex-direction: column; }
     .stat-harga__content--price p {
       margin: 0;
-      padding: 10px; }
+      padding: 10px;
+      font-size: 1.3em; }
     .stat-harga__content--header {
       border-bottom: 1px solid #bdbdbd; }
       .stat-harga__content--header p {
